@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://houghmzqqq.gihub.io">
   <title>js中的正则表达式 | 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.基本语法首先需要说明，在js的正则表达式中，’\’（即反斜杠）表示转义，而非’/‘。 1.1元字符   元字符 描述 元字符 描述     \d 匹配数字 \f 匹配换页符   \s 匹配空白字符 \n 匹配换行符   \b 匹配字母 \r 匹配回车符   \w 表示单词字符，={a-zA-Z0-9} ^ 表示后面出现的字符必须在开头   + 表示出现一到多次，={1,} . 匹配任意字符">
+  <meta name="description" content="首先需要说明，在js的正则表达式中，’\’（即反斜杠）表示转义，而非’/‘。基本的写法是：/匹配的字符/修饰(可选)，匹配的字符包含在两个斜杠中间。 1.基本语法1.1元字符   元字符 描述 元字符 描述     \d 匹配数字 \f 匹配换页符   \s 匹配空白字符 \n 匹配换行符   \b 匹配字母 \r 匹配回车符   \w 表示单词字符，={a-zA-Z0-9} ^ 表示后面出现的字">
 <meta name="keywords" content="js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js中的正则表达式">
 <meta property="og:url" content="http://houghmzqqq.gihub.io/2018/07/13/js中的正则表达式/index.html">
 <meta property="og:site_name" content="博客">
-<meta property="og:description" content="1.基本语法首先需要说明，在js的正则表达式中，’\’（即反斜杠）表示转义，而非’/‘。 1.1元字符   元字符 描述 元字符 描述     \d 匹配数字 \f 匹配换页符   \s 匹配空白字符 \n 匹配换行符   \b 匹配字母 \r 匹配回车符   \w 表示单词字符，={a-zA-Z0-9} ^ 表示后面出现的字符必须在开头   + 表示出现一到多次，={1,} . 匹配任意字符">
-<meta property="og:updated_time" content="2018-07-13T04:00:23.128Z">
+<meta property="og:description" content="首先需要说明，在js的正则表达式中，’\’（即反斜杠）表示转义，而非’/‘。基本的写法是：/匹配的字符/修饰(可选)，匹配的字符包含在两个斜杠中间。 1.基本语法1.1元字符   元字符 描述 元字符 描述     \d 匹配数字 \f 匹配换页符   \s 匹配空白字符 \n 匹配换行符   \b 匹配字母 \r 匹配回车符   \w 表示单词字符，={a-zA-Z0-9} ^ 表示后面出现的字">
+<meta property="og:updated_time" content="2018-07-13T07:00:58.513Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js中的正则表达式">
-<meta name="twitter:description" content="1.基本语法首先需要说明，在js的正则表达式中，’\’（即反斜杠）表示转义，而非’/‘。 1.1元字符   元字符 描述 元字符 描述     \d 匹配数字 \f 匹配换页符   \s 匹配空白字符 \n 匹配换行符   \b 匹配字母 \r 匹配回车符   \w 表示单词字符，={a-zA-Z0-9} ^ 表示后面出现的字符必须在开头   + 表示出现一到多次，={1,} . 匹配任意字符">
+<meta name="twitter:description" content="首先需要说明，在js的正则表达式中，’\’（即反斜杠）表示转义，而非’/‘。基本的写法是：/匹配的字符/修饰(可选)，匹配的字符包含在两个斜杠中间。 1.基本语法1.1元字符   元字符 描述 元字符 描述     \d 匹配数字 \f 匹配换页符   \s 匹配空白字符 \n 匹配换行符   \b 匹配字母 \r 匹配回车符   \w 表示单词字符，={a-zA-Z0-9} ^ 表示后面出现的字">
   
     <link rel="alternative" href="/atom.xml" title="博客" type="application/atom+xml">
   
@@ -172,8 +172,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1.基本语法"></a>1.基本语法</h2><p><strong>首先需要说明，在js的正则表达式中，’\’（即反斜杠）表示转义，而非’/‘。</strong></p>
-<h3 id="1-1元字符"><a href="#1-1元字符" class="headerlink" title="1.1元字符"></a>1.1元字符</h3><table>
+        <p><strong>首先需要说明，在js的正则表达式中，’\’（即反斜杠）表示转义，而非’/‘。基本的写法是：/匹配的字符/修饰(可选)，匹配的字符包含在两个斜杠中间。</strong></p>
+<h2 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1.基本语法"></a>1.基本语法</h2><h3 id="1-1元字符"><a href="#1-1元字符" class="headerlink" title="1.1元字符"></a>1.1元字符</h3><table>
 <thead>
 <tr>
 <th>元字符</th>
@@ -225,12 +225,122 @@
 <td>\b</td>
 <td>匹配一个单词的边界</td>
 </tr>
+<tr>
+<td>？</td>
+<td>表示出现0次或一次，={0,1}</td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <a id="more"></a>
 <p><a href="http://www.regexlab.com/zh/workshop.asp?pat=%5Eaaa&amp;txt=xxx+aaa+xxx" target="_blank" rel="external">举例1：表达式 “^aaa” 在匹配 “xxx aaa xxx” 时</a>，匹配结果是：失败。因为 “^” 要求与字符串开始的地方匹配，因此，只有当 “aaa” 位于字符串的开头的时候，”^aaa” 才能匹配，<a href="http://www.regexlab.com/zh/workshop.asp?pat=%5Eaaa&amp;txt=aaa+xxx+xxx" target="_blank" rel="external">比如：”aaa xxx xxx”</a>。</p>
 <p><a href="http://www.regexlab.com/zh/workshop.asp?pat=aaa$&amp;txt=xxx+aaa+xxx" target="_blank" rel="external">举例2：表达式 “aaa$” 在匹配 “xxx aaa xxx” 时</a>，匹配结果是：失败。因为 “$” 要求与字符串结束的地方匹配，因此，只有当 “aaa” 位于字符串的结尾的时候，”aaa$” 才能匹配，<a href="http://www.regexlab.com/zh/workshop.asp?pat=aaa$&amp;txt=xxx+xxx+aaa" target="_blank" rel="external">比如：”xxx xxx aaa”</a>。</p>
-<p><a href="http://www.regexlab.com/zh/workshop.asp?pat=.%5Cb.&amp;txt=@@@abc" target="_blank" rel="external">举例3：表达式 “./b.” 在匹配 “@@@abc” 时</a>，匹配结果是：成功；匹配到的内容是：”@a”；匹配到的位置是：开始于2，结束于4。<br>​    进一步说明：”/b” 与 “^” 和 “$” 类似，本身不匹配任何字符，但是它要求它在匹配结果中所处位置的左右两边，其中一边是 “/w” 范围，另一边是 非”/w” 的范围。</p>
+<p><a href="http://www.regexlab.com/zh/workshop.asp?pat=.%5Cb.&amp;txt=@@@abc" target="_blank" rel="external">举例3：表达式 “\b” 在匹配 “@@@abc” 时</a>，匹配结果是：成功；匹配到的内容是：”@a”；匹配到的位置是：开始于2，结束于4。<br>​    进一步说明：”/b” 与 “^” 和 “$” 类似，本身不匹配任何字符，但是它要求它在匹配结果中所处位置的左右两边，其中一边是 “/w” 范围，另一边是 非”/w” 的范围。</p>
+<h3 id="1-2修饰符"><a href="#1-2修饰符" class="headerlink" title="1.2修饰符"></a>1.2修饰符</h3><table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i</td>
+<td>执行对大小写不敏感的匹配</td>
+</tr>
+<tr>
+<td>g</td>
+<td>执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）</td>
+</tr>
+<tr>
+<td>m</td>
+<td>执行多行匹配。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-3模式"><a href="#1-3模式" class="headerlink" title="1.3模式"></a>1.3模式</h3><table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>描述</th>
+<th>表达式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[ab5@]</td>
+<td>匹配a、b、5、@中的一个字符</td>
+<td>[^abc]</td>
+<td>匹配a、b、c以外的字符</td>
+</tr>
+<tr>
+<td>[f-k]</td>
+<td>匹配f~k之间的字符</td>
+<td>[^A-F0_3]</td>
+<td>匹配A~F、0~3以外的任意字符</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-4其他"><a href="#1-4其他" class="headerlink" title="1.4其他"></a>1.4其他</h3><table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\</td>
+<td></td>
+<td>能够进行或运算，匹配左边或右边</td>
+</tr>
+<tr>
+<td>()</td>
+<td>括号里的内容可以看做一个整体，能够使用””$1”的方式获取匹配的结果</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-5贪婪匹配和非贪婪匹配"><a href="#1-5贪婪匹配和非贪婪匹配" class="headerlink" title="1.5贪婪匹配和非贪婪匹配"></a>1.5贪婪匹配和非贪婪匹配</h3><p><strong>贪婪模式</strong></p>
+<p>​    在使用修饰匹配次数的特殊符号时，有几种表示方法可以使同一个表达式能够匹配不同的次数，比如：”{m,n}”, “{m,}”, “?”, “*”, “+”，具体匹配的次数随被匹配的字符串而定。这种重复匹配不定次数的表达式在匹配过程中，总是尽可能多的匹配。比如，针对文本 “dxxxdxxxd”，举例如下：</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>匹配结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(d)(\w+)</td>
+<td>“/w+” 将匹配第一个 “d” 之后的所有字符 “xxxdxxxd”</td>
+</tr>
+<tr>
+<td>(d)(/w+)(d)</td>
+<td>“/w+” 将匹配第一个 “d” 和最后一个 “d” 之间的所有字符 “xxxdxxx”。虽然 “/w+” 也能够匹配上最后一个 “d”，但是为了使整个表达式匹配成功，”/w+” 可以 “让出” 它本来能够匹配的最后一个 “d”</td>
+</tr>
+</tbody>
+</table>
+<p><strong>非贪婪模式</strong></p>
+<p>​    在修饰匹配次数的特殊符号后再加上一个 “?” 号，则可以使匹配次数不定的表达式尽可能少的匹配，使可匹配可不匹配的表达式，尽可能的 “不匹配”。这种匹配原则叫作 “非贪婪” 模式，也叫作 “勉强” 模式。如果少匹配就会导致整个表达式匹配失败的时候，与贪婪模式类似，非贪婪模式会最小限度的再匹配一些，以使整个表达式匹配成功。举例如下，针对文本 “dxxxdxxxd” 举例：</p>
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>匹配结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(d)(\w+?)</td>
+<td>“/w+?” 将尽可能少的匹配第一个 “d” 之后的字符，结果是：”/w+?” 只匹配了一个 “x”</td>
+</tr>
+<tr>
+<td>(d)(\w+?)(d)</td>
+<td>为了让整个表达式匹配成功，”/w+?” 不得不匹配 “xxx” 才可以让后边的 “d” 匹配，从而使整个表达式匹配成功。因此，结果是：”/w+?” 匹配 “xxx”</td>
+</tr>
+</tbody>
+</table>
 
       
 
