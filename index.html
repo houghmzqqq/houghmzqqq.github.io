@@ -149,6 +149,121 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js中的正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/13/js中的正则表达式/">js中的正则表达式</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/13/js中的正则表达式/" class="archive-article-date">
+  	<time datetime="2018-07-13T03:04:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-基本语法"><a href="#1-基本语法" class="headerlink" title="1.基本语法"></a>1.基本语法</h2><p><strong>首先需要说明，在js的正则表达式中，’\’（即反斜杠）表示转义，而非’/‘。</strong></p>
+<h3 id="1-1元字符"><a href="#1-1元字符" class="headerlink" title="1.1元字符"></a>1.1元字符</h3><table>
+<thead>
+<tr>
+<th>元字符</th>
+<th>描述</th>
+<th>元字符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\d</td>
+<td>匹配数字</td>
+<td>\f</td>
+<td>匹配换页符</td>
+</tr>
+<tr>
+<td>\s</td>
+<td>匹配空白字符</td>
+<td>\n</td>
+<td>匹配换行符</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配字母</td>
+<td>\r</td>
+<td>匹配回车符</td>
+</tr>
+<tr>
+<td>\w</td>
+<td>表示单词字符，={a-zA-Z0-9}</td>
+<td>^</td>
+<td>表示后面出现的字符必须在开头</td>
+</tr>
+<tr>
+<td>+</td>
+<td>表示出现一到多次，={1,}</td>
+<td>.</td>
+<td>匹配任意字符</td>
+</tr>
+<tr>
+<td>$</td>
+<td>表示前面出现的字符必须在结尾</td>
+<td>\S</td>
+<td>表示非空格符</td>
+</tr>
+<tr>
+<td>*</td>
+<td>表示出现0到多次，={0,}</td>
+<td>\b</td>
+<td>匹配一个单词的边界</td>
+</tr>
+</tbody>
+</table>
+        
+          <a class="article-more-a" href="/2018/07/13/js中的正则表达式/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/13/js中的正则表达式/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-springboot-中定义拦截器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -403,73 +518,6 @@
 
 
   
-    <article id="post-synchronized和Lock的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/08/synchronized和Lock的区别/">synchronized和Lock的区别</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/08/synchronized和Lock的区别/" class="archive-article-date">
-  	<time datetime="2018-01-08T11:36:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-Thread的几个重要方法"><a href="#1-Thread的几个重要方法" class="headerlink" title="1.Thread的几个重要方法"></a>1.Thread的几个重要方法</h2><p>我们先了解一下Thread的几个重要方法：<br>​    a、start()方法，调用该方法开始执行该线程；<br>​    b、stop()方法，调用该方法强制结束该线程执行；<br>​    c、join方法，调用该方法等待该线程结束。<br>​    d、sleep()方法，调用该方法该线程进入等待。<br>​    e、run()方法，调用该方法直接执行线程的run()方法，但是线程调用start()方法时也会运行run()方法，区别就是一个是由线程调度运行run()方法，一个是直接调用了线程中的run()方法！！</p>
-<p>​    看到这里，可能有些人就会问啦，那wait()和notify()呢？要注意，其实wait()与notify()方法是Object的方法，不是Thread的方法！！同时，wait()与notify()会配合使用，分别表示线程挂起和线程恢复。</p>
-<p>​    这里还有一个很常见的问题，顺带提一下：wait()与sleep()的区别，简单来说wait()会释放对象锁而sleep()不会释放对象锁。这些问题有很多的资料，不再赘述。</p>
-        
-          <a class="article-more-a" href="/2018/01/08/synchronized和Lock的区别/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/08/synchronized和Lock的区别/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -562,11 +610,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -626,11 +674,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">-笔记 -框架 -spring</a>
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+                <a href="javascript:void(0)" class="js-tag color1">-笔记 -框架 -spring</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,6 +691,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
