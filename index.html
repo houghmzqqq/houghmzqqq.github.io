@@ -292,7 +292,7 @@
         <p>HandlerInterceptor 的功能跟过滤器类似，但是提供更精细的的控制能力：在request被响应之前、request被响应之后、视图渲染之前以及request全部结束之后。我们不能通过拦截器修改request内容，但是可以通过抛出异常（或者返回false）来暂停request的执行。</p>
 <p>实现 UserRoleAuthorizationInterceptor 的拦截器有：<br>ConversionServiceExposingInterceptor<br>CorsInterceptor<br>LocaleChangeInterceptor<br>PathExposingHandlerInterceptor<br>ResourceUrlProviderExposingInterceptor<br>ThemeChangeInterceptor<br>UriTemplateVariablesHandlerInterceptor<br>UserRoleAuthorizationInterceptor</p>
 <p>其中 LocaleChangeInterceptor 和 ThemeChangeInterceptor 比较常用。</p>
-<p>配置拦截器也很简单，Spring 为什么提供了基础类WebMvcConfigurerAdapter ，我们只需要重写 addInterceptors 方法添加注册拦截器。</p>
+<p>配置拦截器也很简单，Spring 为我们提供了基础类WebMvcConfigurerAdapter ，我们只需要重写 addInterceptors 方法添加注册拦截器。</p>
         
           <a class="article-more-a" href="/2018/04/04/springboot-中定义拦截器/#more">more >></a>
         
@@ -308,7 +308,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">-笔记 -框架 -spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
       		
 		</ul>
