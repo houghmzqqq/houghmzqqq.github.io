@@ -15,7 +15,7 @@ Quartz是一个任务调度框架。比如你遇到这样的问题
 
 这些问题总结起来就是：在某一个有规律的时间点干某件事。并且时间的触发的条件可以非常复杂（比如每月最后一个工作日的17:50），复杂到需要一个专门的框架来干这个事。 Quartz就是来干这样的事，你给它一个触发条件的定义，它负责到了时间点，触发相应的Job起来干活。
 
-
+<!-- more -->
 
 ### ### 一个简单例子
 
@@ -50,4 +50,50 @@ public class TestQuartz {
 }
 ~~~
 
-TestJob
+TestJob.java
+
+~~~java
+/**
+* 任务具体实现类
+*/
+public class TestJob implements Job{
+	public void execute(JobExecutionContext paramJobExecutionContext) throws JobExecutionException {
+		System.out.println("这是一个定时任务。");
+	}
+}
+~~~
+
+
+
+像这样就可以启动一个定时任务了，任务每隔5秒执行一次。
+
+JobDetail用来生成一个Job对象，对应任务，可以用它注册具体的任务实现。Trigger是触发器，它决定任务在何时被触发。Scheduler是调度器，用来管理任务，它基本可以控制quartz中的任何东西了，Scheduler在手天下我有。
+
+
+
+### cron表达式
+
+cron表达式是用来表示时间的一段字符串，大概长这个样子`0 0/10 * * * ?`，它表示间隔10分钟
+
+个人认为专门学习这个表达式的语法有点麻烦，简单了解下语法就好。如果有复杂的定时要求，网上有cron生成器，直接用就是了：[cron表达式生成器]
+
+[cron表达式生成器]: <http://cron.qqe2.com/> "cron表达式生成器"
+
+
+
+使用cron表达式生成触发器：
+
+```java
+// 表达式调度构建器
+CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule("0 0/10 * * * ?");
+// 按照cronExpression表达式构建一个trigger
+trigger = TriggerBuilder.newTrigger().startNow()
+		.withIdentity(mySche.getScheId(), mySche.getScheduleName())
+		.withSchedule(scheduleBuilder).build();
+```
+
+
+
+#### 使用spring与绑定数据库
+
+quartz对spring的亲和度
