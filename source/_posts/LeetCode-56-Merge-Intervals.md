@@ -11,8 +11,8 @@ tags:
 ## 思路
 原题：Given a collection of intervals, merge all overlapping intervals.
 > For example,
->	Given [1,3],[2,6],[8,10],[15,18],
->	return [1,6],[8,10],[15,18].
+> 	Given [1,3],[2,6],[8,10],[15,18],
+> 	return [1,6],[8,10],[15,18].
 
 <!-- more -->
 大意：给一个含有多个时间间隔的集合，合并所有重合的部分。
@@ -22,7 +22,7 @@ tags:
 	4.两个间隔相交，如[1,3]和[2,4]
 
 ## 代码
-```
+```java
 /**
  * Definition for an interval.
  * public class Interval {
@@ -129,7 +129,7 @@ public class Solution {
 分析：先根据start进行排序，然后进行合并，合并条件__a.start <= b.start <= a.end__
 
 ## 代码（优）
-```
+```java
 /**
  * Definition for an interval.
  * public class Interval {
