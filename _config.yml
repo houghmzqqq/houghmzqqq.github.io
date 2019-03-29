@@ -101,10 +101,3 @@ jsonContent:
     categories: false
     tags: true
 
-
-backup:
-    type: git
-    theme: yilia
-    repository:
-       github: git@github.com:houghmzqqq/houghmzqqq.github.io.git,hexo
-       gitcafe: git@github.com:houghmzqqq/houghmzqqq.github.io.git,hexo
