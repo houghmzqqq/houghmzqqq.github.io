@@ -31,16 +31,27 @@ tags:
 
 在你需要备份hexo的电脑上，新建一个文件夹，在该文件夹中进行如下操作：
 
-1.```npm install hexo-cli -g``` 安装hexo（如果还没有安装hexo的话）
+1.```cnpm install hexo-cli -g``` 安装hexo（如果还没有安装hexo的话）
 
-2.```npm install``` 安装其他依赖（如果没安装过的话）
+2.```cnpm install``` 安装其他依赖（如果没安装过的话）
 
 3.```hexo init``` 初始化hexo，执行完后，会生成_config.yml、source等资源文件
 
-4.然后克隆github博客仓库的hexo分支到该目录，然后就会将hexo初始化时生成的一些资源文件覆盖掉，就相当于将你的博客拷贝下来了
+4.```cnpm install --save hexo-deployer-git``` hexo生成静态文件并保存到github所需要的依赖
 
-5.```npm install --save hexo-deployer-git``` hexo生成静态文件并保存到github所需要的依赖
+5.```npm i hexo-generator-json-content --save``` 标签支持依赖（如果你需要使用到标签的话）
 
-6.```npm i hexo-generator-json-content --save``` 标签支持依赖（如果你需要使用到标签的话）
+6.然后克隆github博客仓库的hexo分支到该目录，然后就会将hexo初始化时生成的一些资源文件覆盖掉，就相当于将你的博客拷贝下来了，具体操作是：
 
-然后就可以愉快的```hexo d -g```提交博客了。
+> 1)、用tortoiseGit在hexo（你的博客文件夹）目录下创建版本库
+>
+> 2)、复制.gitignore文件，add文件，提交文件
+>
+> 3)、拉取文件，可以在拉取时配置远端信息，就是github仓库地址，对我来说		      是```https://github.com/houghmzqqq/houghmzqqq.github.io.git```
+>
+> 4)、合并文件，解决冲突（全部替换为远端文件就行）
+>
+> 5)、解决完冲突，再次提交并推送
+
+然后就可以愉快的```hexo d -g``` 提交博客了
+

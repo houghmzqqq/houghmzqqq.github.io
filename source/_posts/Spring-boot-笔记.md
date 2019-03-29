@@ -5,7 +5,6 @@ tags:
 	- 框架
 	- spring
 	- 笔记
-
 ---
 
 # 1 配置
@@ -14,7 +13,7 @@ tags:
 
 ![.properties](properties.jpg)
 
-![.yml](Spring-boot-笔记/yml.jpg)
+![.yml](yml.jpg)
 
 可以看出.yml比.properties文件的配置要简便
 
@@ -28,7 +27,7 @@ tags:
 
 配置文件：
 
-![con](Spring-boot-笔记/config.jpg)
+![con](config.jpg)
 
 实体类：
 
@@ -63,7 +62,7 @@ application-prod.yml:
 	@Controller：定义一个Controller组件，返回一个模板
 	@RestController：定义一个Controller组件，返回String，json等
 	@ResquestMapping：为该类或方法定义url
-
+	
 	@PathVariable：获取url中的数据
 	@RequestParam：获取请求参数
 	@GetMapping：组合注解，相当于RequestMapping(value="",method="GET")
