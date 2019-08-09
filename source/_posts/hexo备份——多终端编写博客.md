@@ -5,17 +5,21 @@ tags:
 	- 随笔
 ---
 
-之前一直在个人笔记本上写博客，最近有需要在另一台终端上去写博客，所以需要将hexo上的资源文件备份到另一台电脑上。在这里记录一下操作过程，方便下一次需要备份博客时使用。
+​        之前一直在个人笔记本上写博客，最近有需要在另一台终端上去写博客，所以需要将hexo上的资源文件备份到另一台电脑上。在这里记录一下操作过程，方便下一次需要备份博客时使用。
 
 #### 1 github上备份
 
-按照网上的教程，安装好node.js并搭建hexo环境后，使用```hexo d -g```命令后，hexo会生成一些静态文件并上传到github上。
+​        按照网上的教程，安装好node.js并搭建hexo环境后，使用```hexo d -g```命令后，hexo会生成一些静态文件并上传到github上。
 
 ![github静态文件](github上静态文件.png)
 
 这些静态文件直接拉取下来是没用的，我们需要将资源文件也放到github上。
 
+
+
 <!-- more -->
+
+
 
 在github存放博客的仓库上，创建一个分支。对于我来说，就是在**houghmzqqq.github.io**仓库上创建**hexo**分支。
 
@@ -47,7 +51,7 @@ tags:
 >
 > 2)、复制.gitignore文件，add文件，提交文件
 >
-> 3)、拉取文件，可以在拉取时配置远端信息，就是github仓库地址，对我来说		      是```https://github.com/houghmzqqq/houghmzqqq.github.io.git```
+> 3)、拉取文件，可以在拉取时配置远端信息，就是github仓库地址，对我来说是https://github.com/houghmzqqq/houghmzqqq.github.io.git
 >
 > 4)、合并文件，解决冲突（全部替换为远端文件就行）
 >
