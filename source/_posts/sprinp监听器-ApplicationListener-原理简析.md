@@ -10,7 +10,7 @@ tags:
 
 ​	spring中监听器的使用很方便，建立一个Listener继承ApplicationListener，建立一个Event继承ApplicationEvent，需要使用时，用applicationContext上下文调用publishEvent()方法触发事件
 
-####1.1 定义事件MyEvent
+#### 1.1 定义事件MyEvent
 
 ```java
 public class MyEvent extends ApplicationEvent{
@@ -25,7 +25,7 @@ public class MyEvent extends ApplicationEvent{
 }
 ```
 
-####1.2 定义监听器MyListener
+#### 1.2 定义监听器MyListener
 
 ```java
 @Component
@@ -42,7 +42,9 @@ public class MyListener implements ApplicationListener<MyEvent>{
 }
 ```
 
-#### 1.3 触发事件
+<!-- more -->
+
+####  1.3 触发事件
 
 ```java
 public class MyTest {
@@ -62,7 +64,7 @@ public class MyTest {
 
 ![监听器时序图](ApplicationListener时序图.jpg)
 
-####2.1 AbstractApplicationContext.publishEvent()
+#### 2.1 触发事件
 
 ​	触发事件时，使用了AbstractApplicationContext.publishEvent()方法，以此为切入点，查看这个方法的源码：
 
@@ -93,7 +95,7 @@ public class MyTest {
 
 ​	上面这段代码重点在`getApplicationEventMulticaster().multicastEvent(applicationEvent, eventType);`，调用SimpleApplicationEventMulticaster.multicastEvent()方法，将事件广播给监听器
 
-####2.2 SimpleApplicationEventMulticaster.multicastEvent()
+#### 2.2 广播事件
 
 ```java
 	@Override
@@ -119,7 +121,7 @@ public class MyTest {
 
 ​	在这个方法中，用getApplicationListeners()方法，获取该事件的所有监听器，然后遍历监听器并用invokeListener()方法，具体的去执行各个监听器逻辑
 
-#### 2.3 AbstractApplicationEventMulticaster.getApplicationListeners()
+####  2.3 获取监听器列表
 
 ```java
 	protected Collection<ApplicationListener<?>> getApplicationListeners(
@@ -162,7 +164,7 @@ public class MyTest {
 
 ​	AbstractApplicationEventMulticaster是SimpleApplicationEventMulticaster的父类，getApplicationListeners()方法主要逻辑是查询缓存中是否有该事件的监听器列表，如果没有则调用retrieveApplicationListeners()重新获取监听器列表。
 
-####2.4 AbstractApplicationEventMulticaster.retrieveApplicationListeners()
+#### 2.4 重新获取监听器列表
 
 ```java
 private Collection<ApplicationListener<?>> retrieveApplicationListeners(
@@ -214,7 +216,7 @@ private Collection<ApplicationListener<?>> retrieveApplicationListeners(
 
 ​	在这个方法中，会获取AbstractApplicationEventMulticaster.defaultRetriever中的listeners(监听器列表)和listenerBeans(监听器BeanId列表)，然后会遍历listenerBeans获取所有监听器实例（所以定义一个监听器后，需要将它注册到IOC中）。_defaultRetriever的初始化在下面会介绍。_
 
-####2.5 SimpleApplicationEventMulticaster.doInvokeListener()
+#### 2.5 通知监听器
 
 ```java 
 	private void doInvokeListener(ApplicationListener listener, ApplicationEvent event) {
@@ -243,7 +245,7 @@ private Collection<ApplicationListener<?>> retrieveApplicationListeners(
 
 ## 三、源码分析（监听器的初始化和注册）
 
-####3.1 AbstractApplicationContext.refresh()
+#### 3.1 初始化spring上下文
 
 ```java
 public void refresh() throws BeansException, IllegalStateException {
@@ -259,9 +261,16 @@ public void refresh() throws BeansException, IllegalStateException {
 
 			try {
 				...省略...
-
+                
+                // 初始化事件多播器
+                initApplicationEventMulticaster
+                  
+				...省略...
+                  
 				// 注册监听器
 				registerListeners();
+              
+              	...省略...
 			}
 			...省略...
 		}
