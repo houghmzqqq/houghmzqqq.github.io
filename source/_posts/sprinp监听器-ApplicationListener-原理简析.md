@@ -2,8 +2,8 @@
 title: sprinp监听器(ApplicationListener)原理简析
 date: 2020-01-13 18:43:06
 tags: 
-	-- spring
-	-- 源码
+	- spring
+	- 源码
 ---
 
 ##一、spring监听器的使用
