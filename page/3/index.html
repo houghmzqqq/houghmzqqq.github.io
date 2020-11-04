@@ -146,6 +146,142 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-springboot-中定义拦截器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/04/springboot-%E4%B8%AD%E5%AE%9A%E4%B9%89%E6%8B%A6%E6%88%AA%E5%99%A8/">springboot 2.0中定义拦截器</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/04/springboot-%E4%B8%AD%E5%AE%9A%E4%B9%89%E6%8B%A6%E6%88%AA%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2018-04-04T01:51:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>HandlerInterceptor 的功能跟过滤器类似，但是提供更精细的的控制能力：在request被响应之前、request被响应之后、视图渲染之前以及request全部结束之后。我们不能通过拦截器修改request内容，但是可以通过抛出异常（或者返回false）来暂停request的执行。</p>
+<p>实现 UserRoleAuthorizationInterceptor 的拦截器有：<br>ConversionServiceExposingInterceptor<br>CorsInterceptor<br>LocaleChangeInterceptor<br>PathExposingHandlerInterceptor<br>ResourceUrlProviderExposingInterceptor<br>ThemeChangeInterceptor<br>UriTemplateVariablesHandlerInterceptor<br>UserRoleAuthorizationInterceptor</p>
+<p>其中 LocaleChangeInterceptor 和 ThemeChangeInterceptor 比较常用。</p>
+<p>配置拦截器也很简单，Spring 为我们提供了基础类WebMvcConfigurerAdapter ，我们只需要重写 addInterceptors 方法添加注册拦截器。</p>
+        
+          <a class="article-more-a" href="/2018/04/04/springboot-%E4%B8%AD%E5%AE%9A%E4%B9%89%E6%8B%A6%E6%88%AA%E5%99%A8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">spring</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">框架</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/04/springboot-%E4%B8%AD%E5%AE%9A%E4%B9%89%E6%8B%A6%E6%88%AA%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
+    <article id="post-自定义jsp标签" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/17/%E8%87%AA%E5%AE%9A%E4%B9%89jsp%E6%A0%87%E7%AD%BE/">自定义jsp标签</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/17/%E8%87%AA%E5%AE%9A%E4%B9%89jsp%E6%A0%87%E7%AD%BE/" class="archive-article-date">
+  	<time datetime="2018-01-17T03:00:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-如何自定义Jsp标签"><a href="#1-如何自定义Jsp标签" class="headerlink" title="1.如何自定义Jsp标签"></a>1.如何自定义Jsp标签</h2><p>​    通过一个示例来说明如何自定义一个jsp标签，示例内容是定义一个标签输出“Hello World！”</p>
+<h4 id="1-1新建一个java类，继承TagSupport类"><a href="#1-1新建一个java类，继承TagSupport类" class="headerlink" title="1.1新建一个java类，继承TagSupport类"></a>1.1新建一个java类，继承TagSupport类</h4><p>​    可以选择重写doStartTag()、doEndTag、doAfterBody()等方法，分别表示识别到开始标签时执行的方法、识别结束标签时执行的方法、执行完标签体后执行的方法。</p>
+<p>​    我们可以在doStartTag()中控制是否输出标签体，在doAfterBody()中实现标签体的循环输出，在doEndTag()中控制后面的内容是否输出等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyTag</span> <span class="keyword">extends</span> <span class="title">TagSupport</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">doStartTag</span><span class="params">()</span> <span class="keyword">throws</span> JspException </span>&#123;</span><br><span class="line">        <span class="comment">//获取输出流</span></span><br><span class="line">        JspWriter out = <span class="keyword">this</span>.pageContext.getOut();</span><br><span class="line">        <span class="comment">//或者获取打印流</span></span><br><span class="line"><span class="comment">//        PrintWriter out = this.pageContext.getResponse().getWriter();</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//打印字符串</span></span><br><span class="line">            out.print(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.doStartTag();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/01/17/%E8%87%AA%E5%AE%9A%E4%B9%89jsp%E6%A0%87%E7%AD%BE/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/17/%E8%87%AA%E5%AE%9A%E4%B9%89jsp%E6%A0%87%E7%AD%BE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-synchronized和Lock的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -340,139 +476,9 @@
 
 
   
-    <article id="post-java多态" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/18/java%E5%A4%9A%E6%80%81/">java多态</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/18/java%E5%A4%9A%E6%80%81/" class="archive-article-date">
-  	<time datetime="2017-12-18T03:26:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是多态"><a href="#什么是多态" class="headerlink" title="什么是多态"></a>什么是多态</h2><p>面向对象的三大特性：</p>
-<p>​    1.封装：通常认为封装是把数据和操作数据的方法绑定起来，对数据的访问只能通过已定义的接口。</p>
-<p>​    2.继承：一个类可以继承另一个类，子类可以访问父类的属性和方法。</p>
-<p>​    3.多态：多态性是指允许不同子类型的对象对同一消息作出不同的响应。简单的说就是用同样的对象引用调用同样的方法但是做了不同的事情。</p>
-<p>举个栗子：</p>
-<p>​    有一个Person类，它封装了walk()和talk()两个行为。有一个Teacher类继承了Person，Teacher也能够walk()和talk()，在此基础上他还能够teach()。</p>
-<p>​    现在有<del>Person  per  =  new Teacher();</del>，它表示Person的引用指向Teacher对象，per能够使用Person中的方法但不能使用Student中独有的teach(),能够访问Person中的__非私有(private)属性__，如果Student中重写了Person中的walk()方法，则per.walk()实际上是使用了重写后的walk()。</p>
-<p>​    总的来说，java中的多态有三个条件：继承，重写，父类引用指向子类对象</p>
-        
-          <a class="article-more-a" href="/2017/12/18/java%E5%A4%9A%E6%80%81/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/18/java%E5%A4%9A%E6%80%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-JSONObject使用心得" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/15/JSONObject%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/">JSONObject使用心得</a>
-    </h1>
-  
-
-        
-        <a href="/2017/12/15/JSONObject%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/" class="archive-article-date">
-  	<time datetime="2017-12-15T12:48:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="对于JSONObject的使用心得"><a href="#对于JSONObject的使用心得" class="headerlink" title="对于JSONObject的使用心得"></a>对于JSONObject的使用心得</h2><p>​    最近在一个项目中需要频繁使用JSON数据来做数据接口，使用到了JSONObject工具类，这是java中一个强大的json转Object、Object转json的工具。</p>
-<h4 id="1-maven中导入的jar："><a href="#1-maven中导入的jar：" class="headerlink" title="1.maven中导入的jar："></a>1.maven中导入的jar：</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-context<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Exclude Commons Logging in favor of SLF4j --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-webmvc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-lang<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-lang<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;commons-lang.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.sf.json-lib<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>json-lib-ext-spring<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2017/12/15/JSONObject%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/15/JSONObject%E4%BD%BF%E7%94%A8%E5%BF%83%E5%BE%97/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -663,6 +669,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">事务</a>
               </li>
             
             <div class="clearfix"></div>
