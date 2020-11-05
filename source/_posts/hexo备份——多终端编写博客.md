@@ -45,17 +45,17 @@ tags:
 
 5.```npm i hexo-generator-json-content --save``` 标签支持依赖（如果你需要使用到标签的话）
 
-6.然后克隆github博客仓库的hexo分支到该目录，然后就会将hexo初始化时生成的一些资源文件覆盖掉，就相当于将你的博客拷贝下来了，具体操作是：
+6.然后在任意位置新建一个文件夹，克隆github博客仓库的hexo分支到该目录，然后将克隆下来的文件覆盖到上面的hexo目录下，就相当于将你的博客拷贝下来了。~~具体操作是：~~
 
-> 1)、用tortoiseGit在hexo（你的博客文件夹）目录下创建版本库
+> ~~1)、用tortoiseGit在hexo（你的博客文件夹）目录下创建版本库~~
 >
-> 2)、复制.gitignore文件，add文件，提交文件
+> ~~2)、复制.gitignore文件，add文件，提交文件~~
 >
-> 3)、拉取文件，可以在拉取时配置远端信息，就是github仓库地址，对我来说是https://github.com/houghmzqqq/houghmzqqq.github.io.git
+> ~~3)、拉取文件，可以在拉取时配置远端信息，就是github仓库地址，对我来说是https://github.com/houghmzqqq/houghmzqqq.github.io.git~~
 >
-> 4)、合并文件，解决冲突（全部替换为远端文件就行）
+> ~~4)、合并文件，解决冲突（全部替换为远端文件就行）~~
 >
-> 5)、解决完冲突，再次提交并推送
+> ~~5)、解决完冲突，再次提交并推送~~
 
-然后就可以愉快的```hexo d -g``` 提交博客了
+然后就可以愉快的```hexo d -g``` 提交博客了！！（当然，先执行`hexo server`本地测试一下）
 
