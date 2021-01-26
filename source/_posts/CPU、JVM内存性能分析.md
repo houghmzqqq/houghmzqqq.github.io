@@ -71,9 +71,9 @@ cat 84750.stack |grep '14ca6' -C 8
 
 &emsp;&emsp;所以我又找到了arthas，这是alibaba开发的一款开源工具，专门用来排查分析java进程的性能问题的。他的功能和jdk自带工具的功能相似，但是使用起来很方便。
 
-&emsp;&emsp;下载安装教程略过，下面是官方文档：
+&emsp;&emsp;下载安装教程略过，下面是官方文档：[arthas官方文档](https://arthas.aliyun.com/doc/thread.html)
 
-[arthas官方文档]: https://arthas.aliyun.com/doc/thread.html	"官方文档"
+
 
 a）启动arthas：
 
