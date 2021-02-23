@@ -17,7 +17,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://houghmzqqq.gihub.io/2019/08/08/%E4%BD%8D%E5%9B%BE%E7%AE%97%E6%B3%95-BitMap/%E7%94%A8%E6%88%B7%E6%A0%87%E7%AD%BE.png">
 <meta property="article:published_time" content="2019-08-08T06:53:50.000Z">
-<meta property="article:modified_time" content="2020-10-21T12:06:40.162Z">
+<meta property="article:modified_time" content="2021-02-23T03:53:39.792Z">
 <meta property="article:author" content="叶俊锋">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -303,7 +303,6 @@
 </tbody></table>
 <p>要问这时BitMap中存放了那些元素，那是一目了然的7,4,3这几个。BitMap不仅方便查询，还可以去除掉重复的整形数。</p>
 <h3 id="怎么应用"><a href="#怎么应用" class="headerlink" title="怎么应用"></a>怎么应用</h3><p>那看到这里有小伙伴可能有疑问了，怎么将BitMap应用到上面的问题中呢？</p>
-<p>问的好！！！</p>
 <p>用户可能有数十万个，那一个用户建立一个BitMap的方式肯定是不妥的。我们可以换一种思路，将标签抽象为一个个的BitMap，然后BitMap中存放对应用户的ID。</p>
 <p>第一步：为用户建立一个映射关系表</p>
 <table>
@@ -389,7 +388,6 @@
 </tr>
 </tbody></table>
 <p>那看到这里又有小伙伴要问了，要查90后的男性用户怎么查呢？</p>
-<p>问得好！！！</p>
 <p>这时候就需要用到BitMap的‘与’和‘或’等操作了</p>
 <p>首先拿到男性标签和90后标签的BitMap</p>
 <p>男性用户（0000001010B）：</p>

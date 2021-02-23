@@ -21,7 +21,7 @@
 <meta property="og:image" content="http://houghmzqqq.gihub.io/2020/11/04/CPU%E3%80%81JVM%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/arthas01.png">
 <meta property="og:image" content="http://houghmzqqq.gihub.io/2020/11/04/CPU%E3%80%81JVM%E5%86%85%E5%AD%98%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90/arthas02.png">
 <meta property="article:published_time" content="2020-11-04T08:26:02.000Z">
-<meta property="article:modified_time" content="2020-11-11T06:01:23.484Z">
+<meta property="article:modified_time" content="2021-02-23T03:54:53.459Z">
 <meta property="article:author" content="叶俊锋">
 <meta property="article:tag" content="JVM">
 <meta name="twitter:card" content="summary">
@@ -201,7 +201,7 @@
 
 <p><img src="jstack03.png" alt="jstack03"></p>
 <p>&emsp;&emsp;这样就能够定位到出问题的代码在哪个位置了，接下来就剩下找出原因并解决。CPU升高的问题无非就是死循环嘛，我最终找到的问题是，在代码中使用了while(true)，后面使用Thread.sleep(10000)代替了。</p>
-<h3 id="2-arthas"><a href="#2-arthas" class="headerlink" title="2.arthas"></a>2.arthas</h3><p>&emsp;&emsp;使用上面的jstack是可以定位到问题线程的，但是操作还是有一些繁琐的，需要找到进程pid，再找线程pid，还要将线程pid转为16进制，整个排查过程就很不流畅，不符合我优雅居士的作风和气质。</p>
+<h3 id="2-arthas"><a href="#2-arthas" class="headerlink" title="2.arthas"></a>2.arthas</h3><p>&emsp;&emsp;使用上面的jstack是可以定位到问题线程的，但是操作还是有一些繁琐的，需要找到进程pid，再找线程pid，还要将线程pid转为16进制，整个排查过程就很不流畅。</p>
 <p>&emsp;&emsp;所以我又找到了arthas，这是alibaba开发的一款开源工具，专门用来排查分析java进程的性能问题的。他的功能和jdk自带工具的功能相似，但是使用起来很方便。</p>
 <p>&emsp;&emsp;下载安装教程略过，下面是官方文档：<a target="_blank" rel="noopener" href="https://arthas.aliyun.com/doc/thread.html">arthas官方文档</a></p>
 <p>a）启动arthas：</p>
