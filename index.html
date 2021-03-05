@@ -210,7 +210,36 @@
 <p>(4) Using join buffer：改值强调了在获取连接条件时没有使用索引，并且需要连接缓冲区来存储中间结果。如果出现了这个值，那应该注意，根据查询的具体情况可能需要添加索引来改进能。</p>
 <p>(5) Impossible where：这个值强调了where语句会导致没有符合条件的行。</p>
 <p>(6) Select tables optimized away：这个值意味着仅通过使用索引，优化器可能仅从聚合函数结果中返回一行</p>
-<h1 id="2-问题记录"><a href="#2-问题记录" class="headerlink" title="2.问题记录"></a>2.问题记录</h1><p>a).同一条sql语句中，一个查询条件最多只能使用一个索引</p>
+<h1 id="2-实际问题"><a href="#2-实际问题" class="headerlink" title="2.实际问题"></a>2.实际问题</h1><p>a).没有加索引</p>
+<p>&emsp;&emsp;在实际项目中遇到最多的问题就是没有加索引，因为需求文档上没有标明可能有的数据量，开发过程中我就很少会有意识的去考虑数据量的问题，就忽略的性能的问题了。</p>
+<p>&emsp;&emsp;问题是由监控系统发现的，解决过程就是查看下常用的查询条件，给它加上索引，order by用来排序的字段也要加上索引。然后用explain查看执行计划，主要看看type和key列，查看是否使用了索引。</p>
+<p>b).索引不生效</p>
+<p>1).使用like模糊查询</p>
+<p>我的索引:</p>
+<p><img src="%E7%B4%A2%E5%BC%95001.png" alt="索引001"></p>
+<p>sql001:</p>
+<p><img src="sql001.png" alt="sql001"></p>
+<p>sql002:</p>
+<p><img src="sql002.png" alt="sql002"></p>
+<p>&emsp;&emsp;可以看到，上面的第一条上去了走索引，第二条不走。因为like不使用模糊查询的时候，效果是等同于”=”的。</p>
+<p>2).使用”!=”、”is not null”</p>
+<p>sql003:</p>
+<p><img src="sql003.png" alt="sql003"></p>
+<p>3).对索引列做运算</p>
+<p>sql004:</p>
+<p><img src="sql004.png" alt="sql004"></p>
+<p>&emsp;&emsp;包括+、-、or等运算，都会使索引失效。</p>
+<p>sql005:</p>
+<p><img src="sql005.png" alt="sql005"></p>
+<p>&emsp;&emsp;需要注意的是，想上面这种or查询是能够走索引的，这里说的or运算是指sql004中的情况。</p>
+<p>4).复合索引不符合最左原则时</p>
+<p>sql006:</p>
+<p><img src="sql006.png" alt="sql006"></p>
+<p>5).范围查询时，数量过多</p>
+<p>&emsp;&emsp;像sql006中的语句，原本可以使用INDEX_START_TIME索引的，但是由于结果数据量过大导致存储引擎放弃使用索引。</p>
+<p>&emsp;&emsp;使用如下的语句限制结果的数据量，可以使其走索引。</p>
+<p>sql007:</p>
+<p><img src="sql007.png" alt="sql007"></p>
 
       
 
